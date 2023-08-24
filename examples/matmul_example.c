@@ -1,4 +1,4 @@
-#include "../matrices.h"
+#include "../linalg.h"
 #include <stdio.h>
 
 int main() {

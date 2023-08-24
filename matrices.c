@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "matrices.h"
+#include "linalg.h"
 
 Matrix *allocate_empty(unsigned int rows, unsigned int columns) {
   int **matrix_values = (int **)malloc(sizeof(int *) * rows);
