@@ -35,7 +35,7 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
   
 }
 
-int matmul_col_and_row(Matrix *A, Matrix *B, unsigned int A_row, 
+static int matmul_col_and_row(Matrix *A, Matrix *B, unsigned int A_row, 
                         unsigned int B_col) {
   unsigned int rv = 0;
   for (unsigned int i = 0; i < B->rows; i++) {
@@ -60,7 +60,7 @@ Matrix *matmul(Matrix *A, Matrix *B) {
  * operations over the same lines. If this code is refactored it should preserve that quality.
  */
 
-unsigned int len_of_num(int num) {
+static unsigned int len_of_num(int num) {
   char num_str[14];
   sprintf(num_str, "%d", num);
   
@@ -73,7 +73,7 @@ unsigned int len_of_num(int num) {
 
 /* NOTE: this helper function exists and is written like this becuase it 
 makes it easier to print out operations involving multiple matrices */
-void print_matrix_row(Matrix *matrix, int row) {
+static void print_matrix_row(Matrix *matrix, int row) {
   unsigned int space_per_num = 5;
 
   if (row == -1) {
@@ -139,7 +139,7 @@ void print_matrix_verbose(Matrix *matrix) {
   print_matrix(matrix);
 }
 
-Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operation) {
+static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operation) {
   unsigned int output_height, output_height_half;
   unsigned int A_starting_row, A_ending_row;
   unsigned int B_starting_row, B_ending_row;
