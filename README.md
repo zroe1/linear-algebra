@@ -1,5 +1,5 @@
 # linear-algebra
-Implementation of linear algebra operations in C.
+Implementation of linear algebra operations in C. <b>Currently in the early stages of development.</b>
 
 ## Matrix multiplication
 ```c
