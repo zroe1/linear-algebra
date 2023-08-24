@@ -46,10 +46,21 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
  * Preforms matrix multiplication on 2 matrices and returns the result as a
  * freshly allocated matrix.
  * 
- * @param A The first matrix to be allocated.
- * @param B The second matrix to be allocated.
+ * @param A The first matrix to be multiplied.
+ * @param B The second matrix to be multiplied.
  * @return The result of the matrix multiplication.
  */
 Matrix *matmul(Matrix *A, Matrix *B);
+
+
+/**
+ * Prints the matrix multiplication of 2 matrices and returns the result as a
+ * freshly allocated matrix.
+ * 
+ * @param A The first matrix to be multiplied.
+ * @param B The second matrix to be multiplied.
+ * @return The result of the matrix multiplication.
+ */
+Matrix *print_matmul(Matrix *A, Matrix *B);
 
 #endif // MATRICES_H
