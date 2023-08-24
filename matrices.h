@@ -42,4 +42,14 @@ Matrix *allocate_empty(unsigned int rows, unsigned int columns);
 Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
                              int arr[rows][columns]);
 
+/**
+ * Preforms matrix multiplication on 2 matrices and returns the result as a
+ * freshly allocated matrix.
+ * 
+ * @param A The first matrix to be allocated.
+ * @param B The second matrix to be allocated.
+ * @return The result of the matrix multiplication.
+ */
+Matrix *matmul(Matrix *A, Matrix *B);
+
 #endif // MATRICES_H
