@@ -1,7 +1,7 @@
 #include "matrices.h"
 
 int main() {
-
+  /*
   int arr1[2][3] = {
     {1, 7, 8},
     {2, 6, 7}
@@ -17,5 +17,21 @@ int main() {
   Matrix *b = allocate_from_2D_arr(3, 2, arr2);
 
   Matrix *out = print_matmul(a, b);
+  print_matrix_verbose(out);
+  */
+
+  int arr1[2][1] = {
+    {1},
+    {2}
+  };
+
+  int arr2[2][1] = {
+    {5},
+    {6}
+  };
+
+  Matrix *a = allocate_from_2D_arr(2, 1, arr1);
+  Matrix *b = allocate_from_2D_arr(2, 1, arr2);
+  Matrix *out = print_matadd(a, b);
   print_matrix_verbose(out);
 }

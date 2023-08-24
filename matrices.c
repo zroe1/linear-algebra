@@ -36,7 +36,7 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
 }
 
 static int matmul_col_and_row(Matrix *A, Matrix *B, unsigned int A_row, 
-                        unsigned int B_col) {
+                              unsigned int B_col) {
   unsigned int rv = 0;
   for (unsigned int i = 0; i < B->rows; i++) {
     rv += A->values[A_row][i] * B->values[i][B_col];
@@ -54,12 +54,21 @@ Matrix *matmul(Matrix *A, Matrix *B) {
   return rv;
 }
 
+Matrix *matadd(Matrix *A, Matrix *B) {
+  Matrix *rv = allocate_empty(A->rows, A->columns);
+  for (unsigned int i = 0; i < A->rows; i++) {
+    for (unsigned int j = 0; j < B->columns; j++) {
+      rv->values[i][j] = A->values[i][j] + B->values[i][j];
+    }
+  }
+  return rv;
+}
+
 /*
  * NOTE: The following functions are for printing matrices and operations on
  * matrices. The code is writen so it is possible to print whole matrix 
  * operations over the same lines. If this code is refactored it should preserve that quality.
  */
-
 static unsigned int len_of_num(int num) {
   char num_str[14];
   sprintf(num_str, "%d", num);
@@ -196,6 +205,12 @@ static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operat
 Matrix *print_matmul(Matrix *A, Matrix *B) {
   Matrix *result = matmul(A, B);
   print_operation(A, B, result, '*');
+  return result;
+}
+
+Matrix *print_matadd(Matrix *A, Matrix *B) {
+  Matrix *result = matadd(A, B);
+  print_operation(A, B, result, '+');
   return result;
 }
 
