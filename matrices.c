@@ -169,7 +169,7 @@ static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operat
   A_ending_row = A_starting_row + A->rows + 2 - 1;
   B_ending_row = B_starting_row + B->rows + 2 - 1;
   result_ending_row = result_starting_row + result -> rows + 2 - 1;
-  output_height_half = output_height / 2;
+  output_height_half = (output_height - 1) / 2;
 
   for (unsigned int i = 0; i < output_height; i++) {
     if (i >= A_starting_row && i <= A_ending_row) {
@@ -202,15 +202,15 @@ static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operat
   return result; 
 }
 
-Matrix *print_matmul(Matrix *A, Matrix *B) {
+void print_matmul(Matrix *A, Matrix *B) {
   Matrix *result = matmul(A, B);
   print_operation(A, B, result, '*');
-  return result;
+  free(result);
 }
 
-Matrix *print_matadd(Matrix *A, Matrix *B) {
+void print_matadd(Matrix *A, Matrix *B) {
   Matrix *result = matadd(A, B);
   print_operation(A, B, result, '+');
-  return result;
+  free(result);
 }
 

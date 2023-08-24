@@ -52,16 +52,13 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
  */
 Matrix *matmul(Matrix *A, Matrix *B);
 
-
 /**
- * Prints the matrix multiplication of 2 matrices and returns the result as a
- * freshly allocated matrix.
+ * Prints the matrix multiplication of 2 matrices.
  * 
  * @param A The first matrix to be multiplied.
  * @param B The second matrix to be multiplied.
- * @return The result of the matrix multiplication.
  */
-Matrix *print_matmul(Matrix *A, Matrix *B);
+void print_matmul(Matrix *A, Matrix *B);
 
 /**
  * Preforms matrix addition on 2 matrices and returns the result as a
@@ -74,13 +71,11 @@ Matrix *print_matmul(Matrix *A, Matrix *B);
 Matrix *matadd(Matrix *A, Matrix *B);
 
 /**
- * Prints the matrix addition of 2 matrices and returns the result as a
- * freshly allocated matrix.
+ * Prints the matrix addition of 2 matrices.
  * 
  * @param A The first matrix to be added.
  * @param B The second matrix to be added.
- * @return The result of the matrix addition.
  */
-Matrix *print_matadd(Matrix *A, Matrix *B);
+void print_matadd(Matrix *A, Matrix *B);
 
 #endif // MATRICES_H
