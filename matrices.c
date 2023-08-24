@@ -3,9 +3,9 @@
 #include "linalg.h"
 
 Matrix *allocate_empty(unsigned int rows, unsigned int columns) {
-  int **matrix_values = (int **)malloc(sizeof(int *) * rows);
+  double **matrix_values = (double **)malloc(sizeof(double *) * rows);
   for (unsigned int i = 0; i < rows; i++) {
-    int *current_column = (int *)calloc(columns, sizeof(int));
+    double *current_column = (double *)calloc(columns, sizeof(double));
     matrix_values[i] = current_column;
   }
   
@@ -17,10 +17,10 @@ Matrix *allocate_empty(unsigned int rows, unsigned int columns) {
 }
 
 Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns, 
-                             int arr[rows][columns]) {
-  int **matrix_values = (int **)malloc(sizeof(int *) * rows);
+                             double arr[rows][columns]) {
+  double **matrix_values = (double **)malloc(sizeof(double *) * rows);
   for (unsigned int i = 0; i < rows; i++) {
-    int *current_column = (int *)malloc(columns * sizeof(int));
+    double *current_column = (double *)malloc(columns * sizeof(double));
     for (unsigned int j = 0; j < columns; j++) {
       current_column[j] = arr[i][j];
     }
@@ -37,7 +37,7 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
 
 static int matmul_col_and_row(Matrix *A, Matrix *B, unsigned int A_row, 
                               unsigned int B_col) {
-  unsigned int rv = 0;
+  double rv = 0;
   for (unsigned int i = 0; i < B->rows; i++) {
     rv += A->values[A_row][i] * B->values[i][B_col];
   }
@@ -69,9 +69,9 @@ Matrix *matadd(Matrix *A, Matrix *B) {
  * matrices. The code is writen so it is possible to print whole matrix 
  * operations over the same lines. If this code is refactored it should preserve that quality.
  */
-static unsigned int len_of_num(int num) {
-  char num_str[14];
-  sprintf(num_str, "%d", num);
+static unsigned int len_of_num(double num) {
+  char num_str[50];
+  sprintf(num_str, "%.2f", num);
   
   unsigned int rv = 0;
   while (num_str[rv] != '\0') {
@@ -83,7 +83,7 @@ static unsigned int len_of_num(int num) {
 /* NOTE: this helper function exists and is written like this becuase it 
 makes it easier to print out operations involving multiple matrices */
 static void print_matrix_row(Matrix *matrix, int row) {
-  unsigned int space_per_num = 5;
+  unsigned int space_per_num = 8;
 
   if (row == -1) {
     // prints empty row
@@ -129,7 +129,7 @@ static void print_matrix_row(Matrix *matrix, int row) {
     
     while (left_padding-- > 0)
       putchar(' ');
-    printf("%d", matrix->values[row - 1][j]);
+    printf("%.2f", matrix->values[row - 1][j]);
     while (right_padding-- > 0)
       putchar(' ');
   }

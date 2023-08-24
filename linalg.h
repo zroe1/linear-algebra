@@ -4,7 +4,7 @@
 typedef struct {
   unsigned int rows;
   unsigned int columns;
-  int **values;
+  double **values;
 } Matrix;
 
 /**
@@ -40,7 +40,7 @@ Matrix *allocate_empty(unsigned int rows, unsigned int columns);
  * @return The allocated Matrix struct
  */
 Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
-                             int arr[rows][columns]);
+                             double arr[rows][columns]);
 
 /**
  * Preforms matrix multiplication on 2 matrices and returns the result as a

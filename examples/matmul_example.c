@@ -2,12 +2,12 @@
 #include <stdio.h>
 
 int main() {
-  int arr1[2][3] = {
+  double arr1[2][3] = {
     {1, 7, 8},
     {2, 6, 7}
   };
 
-  int arr2[3][2] = {
+  double arr2[3][2] = {
     {1, 2},
     {2, 3},
     {5, 2}
