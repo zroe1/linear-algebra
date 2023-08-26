@@ -38,6 +38,22 @@ double dot_product(Matrix *vec1, Matrix *vec2) {
   return rv;
 }
 
+Matrix *allocate_unit_vector(Matrix *vector) {
+  Matrix *unit_vector = allocate_empty(vector->rows, vector->columns);
+  unit_vector->rows = vector->rows;
+  unit_vector->columns = vector->columns;
+
+  double vector_length = norm(vector);
+
+  for (unsigned int i = 0; i < vector->rows; i++) {
+    for (unsigned int j = 0; j < vector->columns; j++) {
+      unit_vector->values[i][j] = vector->values[i][j] / vector_length;
+    }
+  }
+
+  return unit_vector;
+}
+
 int main() {
   double arr1[3][1] = {
     {1}, 
@@ -51,12 +67,15 @@ int main() {
     {1}
   };
 
-  Matrix *a = allocate_from_2D_arr(1, 3, arr1);
-  Matrix *b = allocate_from_2D_arr(1, 3, arr2);
+  Matrix *a = allocate_from_2D_arr(3, 1, arr1);
+  Matrix *b = allocate_from_2D_arr(3, 1, arr2);
   
   double len = norm(a);
   printf("Length of vector a: %f\n", len);
 
   double dot = dot_product(a, b);
   printf("Dot product: %f\n", dot);
+
+  Matrix *unit_vec = allocate_unit_vector(b);
+  print_matrix_verbose(unit_vec);
 }

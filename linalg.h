@@ -97,4 +97,14 @@ double norm(Matrix *vector);
  */
 double dot_product(Matrix *vec1, Matrix *vec2);
 
+/**
+ * Allocates and returns the unit vector for the vector passed into the 
+ * function
+ * 
+ * @param vector A size 1 x n or n x 1 matrix to represent a vector
+ * @return A size 1 x n or n x 1 Matrix to represent the unit vector of the
+ * vector passed into the function.
+ */
+Matrix *allocate_unit_vector(Matrix *vector);
+
 #endif // MATRICES_H
