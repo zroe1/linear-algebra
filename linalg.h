@@ -80,10 +80,21 @@ void print_matadd(Matrix *A, Matrix *B);
 
 
 /**
- * Calculates the length of a vector
+ * Calculates the length of a vector.
  * 
- * @param A size 1 x n matrix and a size n x 1 matrix to represent a vector.
+ * @param vector A size 1 x n or n x 1 matrix to represent a vector
+ * @return The length of the input vector
  */
 double norm(Matrix *vector);
+
+/**
+ * Calculates the dot product of two vectors and returns the answer as a
+ * scalar.
+ * 
+ * @param vec1 A size 1 x n or n x 1 matrix to represent a vector
+ * @param vec2 A size 1 x n or n x 1 matrix to represent a vector
+ * @return The dot product of the input vectors
+ */
+double dot_product(Matrix *vec1, Matrix *vec2);
 
 #endif // MATRICES_H
