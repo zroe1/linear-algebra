@@ -1,14 +1,14 @@
-# linear-algebra
+# Linear algebra in C
 Implementation of linear algebra operations in C. <b>Currently in the early stages of development.</b>
 
 ## Matrix multiplication
 ```c
-int arr1[2][3] = {
+double arr1[2][3] = {
   {1, 7, 8},
   {2, 6, 7}
 };
 
-int arr2[3][2] = {
+double arr2[3][2] = {
   {1, 2},
   {2, 3},
   {5, 2}
@@ -21,21 +21,21 @@ print_matmul(a, b);
 ```
 Result:
 ```
-/               \     /          \     /          \
-|  1    7    8  |     |  1    2  |     | 55   39  |
-|  2    6    7  |  *  |  2    3  |  =  | 49   36  |
-\               /     |  5    2  |     \          /
-                      \          /
+/                        \     /                \     /                \
+|  1.00    7.00    8.00  |     |  1.00    2.00  |     | 55.00   39.00  |
+|  2.00    6.00    7.00  |  *  |  2.00    3.00  |  =  | 49.00   36.00  |
+\                        /     |  5.00    2.00  |     \                /
+                               \                /     
 ```
 
 ## Matrix addition:
 ```c
-int arr1[2][1] = {
+double arr1[2][1] = {
   {1},
   {2}
 };
 
-int arr2[2][1] = {
+double arr2[2][1] = {
   {5},
   {6}
 };
@@ -47,8 +47,8 @@ print_matadd(a, b);
 ```
 Result:
 ```
-/     \     /     \     /     \
-|  1  |  +  |  5  |  =  |  6  |
-|  2  |     |  6  |     |  8  |
-\     /     \     /     \     /
+/        \     /        \     /        \
+|  1.00  |  +  |  5.00  |  =  |  6.00  |
+|  2.00  |     |  6.00  |     |  8.00  |
+\        /     \        /     \        /
 ```
