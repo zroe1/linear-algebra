@@ -78,4 +78,12 @@ Matrix *matadd(Matrix *A, Matrix *B);
  */
 void print_matadd(Matrix *A, Matrix *B);
 
+
+/**
+ * Calculates the length of a vector
+ * 
+ * @param A size 1 x n matrix and a size n x 1 matrix to represent a vector.
+ */
+double norm(Matrix *vector);
+
 #endif // MATRICES_H
