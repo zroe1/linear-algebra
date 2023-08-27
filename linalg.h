@@ -115,4 +115,13 @@ double dot_product(Matrix *vec1, Matrix *vec2);
  */
 Matrix *allocate_unit_vector(Matrix *vector);
 
+/**
+ * Calculates the angle between vectors.
+ * 
+ * @param vec1 A size 1 x n or n x 1 matrix to represent a vector
+ * @param vec2 A size 1 x n or n x 1 matrix to represent a vector
+ * @return The angle between the vectors as a scalar.
+ */
+double angle_between_vectors(Matrix *vec1, Matrix *vec2);
+
 #endif // MATRICES_H

@@ -54,31 +54,51 @@ Matrix *allocate_unit_vector(Matrix *vector) {
   return unit_vector;
 }
 
-int main() {
-  double arr1[3][1] = {
-    {1}, 
-    {7},
-    {8}
-  };
-  
-  double arr2[3][1] = {
-    {1},
-    {2},
-    {1}
-  };
-
-  Matrix *a = allocate_from_2D_arr(3, 1, arr1);
-  Matrix *b = allocate_from_2D_arr(3, 1, arr2);
-  
-  double len = norm(a);
-  printf("Length of vector a: %f\n", len);
-
-  double dot = dot_product(a, b);
-  printf("Dot product: %f\n", dot);
-
-  Matrix *unit_vec = allocate_unit_vector(b);
-  print_matrix_verbose(unit_vec);
-
-  matrix_x_scalar(unit_vec, 10);
-  print_matrix_verbose(unit_vec);
+static int factorial(int n) {
+  int rv = 1;
+  while (n > 1) {
+    rv *= n--;
+  }
+  return rv;
 }
+
+static double base_to_unsigned_pow(double base, unsigned int power) {
+  double rv = 1;
+
+  for (unsigned int i = 0; i < power; i++) {
+    rv *= base;
+  }
+
+  return rv;
+}
+
+static double arccos(double x) {
+  double PI = 3.14159265;
+  double rv = PI / 2;
+  unsigned int n = 7;
+
+  for (unsigned int i = 0; i < n; i++) {
+    double numerator1 = factorial(2.0*i);
+    double denomenator1 = base_to_unsigned_pow(2, 2*i) * factorial(i) * factorial(i);
+    double left = numerator1 / denomenator1;
+
+    double numerator2 = base_to_unsigned_pow(x, 2*i + 1);
+    double denomenator2 = 2 * i + 1;
+    double right = numerator2 / denomenator2;
+    // printf("num1: %f, den: %f\n",  numerator1, denomenator1);
+    // printf("n: %i, left: %f, right: %f\n",i, left, right);
+    // printf("val: %f\n", left * right);
+    rv -= left * right;
+  }
+  return rv;
+}
+
+double angle_between_vectors(Matrix *vec1, Matrix *vec2) {
+  Matrix *unit_vec1 = allocate_unit_vector(vec1);
+  Matrix *unit_vec2 = allocate_unit_vector(vec2);
+
+  double cos_theta = dot_product(unit_vec1, unit_vec2);
+  // FREE VECTORS
+  return arccos(cos_theta);
+}
+
