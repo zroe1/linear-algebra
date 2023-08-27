@@ -53,6 +53,14 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
 Matrix *matmul(Matrix *A, Matrix *B);
 
 /**
+ * Multiplies each number in a matrix by a scalar.
+ * 
+ * @param matrix The matrix to be multiplied.
+ * @param scalar The scalar for the matrix to be multiplied by
+ */
+void matrix_x_scalar(Matrix *matrix, double scalar);
+
+/**
  * Prints the matrix multiplication of 2 matrices.
  * 
  * @param A The first matrix to be multiplied.

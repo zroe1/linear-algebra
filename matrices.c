@@ -64,6 +64,14 @@ Matrix *matadd(Matrix *A, Matrix *B) {
   return rv;
 }
 
+void matrix_x_scalar(Matrix *matrix, double scalar) {
+  for (unsigned int i = 0; i < matrix->rows; i++) {
+    for (unsigned int j = 0; j < matrix->columns; j++) {
+      matrix->values[i][j] = matrix->values[i][j] * scalar;
+    }
+  }
+}
+
 /*
  * NOTE: The following functions are for printing matrices and operations on
  * matrices. The code is writen so it is possible to print whole matrix 

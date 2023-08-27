@@ -78,4 +78,7 @@ int main() {
 
   Matrix *unit_vec = allocate_unit_vector(b);
   print_matrix_verbose(unit_vec);
+
+  matrix_x_scalar(unit_vec, 10);
+  print_matrix_verbose(unit_vec);
 }
