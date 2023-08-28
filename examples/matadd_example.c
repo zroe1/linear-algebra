@@ -19,7 +19,7 @@ int main() {
   print_matadd(a, b);
   putchar('\n');
 
-  Matrix *output = matmul(a, b);
+  Matrix *output = matadd(a, b);
   printf("Resulting matrix of 'matadd' function:\n");
   print_matrix_verbose(output);
 
