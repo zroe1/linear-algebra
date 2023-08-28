@@ -43,6 +43,13 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
                              double arr[rows][columns]);
 
 /**
+ * Frees an allocated matrix and the values associated with it.
+ * 
+ * @param matrix The matrix to be freed
+ */
+void free_matrix(Matrix *matrix);
+
+/**
  * Preforms matrix multiplication on 2 matrices and returns the result as a
  * freshly allocated matrix.
  * 

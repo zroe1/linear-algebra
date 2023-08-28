@@ -23,5 +23,9 @@ int main() {
   printf("Resulting matrix of 'matadd' function:\n");
   print_matrix_verbose(output);
 
+  free_matrix(a);
+  free_matrix(b);
+  free_matrix(output);
+
   return 0;
 }

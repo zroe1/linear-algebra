@@ -75,7 +75,7 @@ static double base_to_unsigned_pow(double base, unsigned int power) {
 static double arccos(double x) {
   double PI = 3.14159265;
   double rv = PI / 2;
-  unsigned int n = 7;
+  unsigned int n = 9;
 
   for (unsigned int i = 0; i < n; i++) {
     double numerator1 = factorial(2.0*i);
@@ -85,9 +85,7 @@ static double arccos(double x) {
     double numerator2 = base_to_unsigned_pow(x, 2*i + 1);
     double denomenator2 = 2 * i + 1;
     double right = numerator2 / denomenator2;
-    // printf("num1: %f, den: %f\n",  numerator1, denomenator1);
-    // printf("n: %i, left: %f, right: %f\n",i, left, right);
-    // printf("val: %f\n", left * right);
+    printf("num1: %f, den: %f, left: %f\n",  numerator1, denomenator1, left);
     rv -= left * right;
   }
   return rv;
@@ -100,5 +98,9 @@ double angle_between_vectors(Matrix *vec1, Matrix *vec2) {
   double cos_theta = dot_product(unit_vec1, unit_vec2);
   // FREE VECTORS
   return arccos(cos_theta);
+}
+
+int main() {
+  printf("%f\n", arccos(-0.95));
 }
 

@@ -35,6 +35,11 @@ Matrix *allocate_from_2D_arr(unsigned int rows, unsigned int columns,
   
 }
 
+void free_matrix(Matrix *matrix) {
+  free(matrix->values);
+  free(matrix);
+}
+
 static int matmul_col_and_row(Matrix *A, Matrix *B, unsigned int A_row, 
                               unsigned int B_col) {
   double rv = 0;
@@ -213,12 +218,12 @@ static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operat
 void print_matmul(Matrix *A, Matrix *B) {
   Matrix *result = matmul(A, B);
   print_operation(A, B, result, '*');
-  free(result);
+  free_matrix(result);
 }
 
 void print_matadd(Matrix *A, Matrix *B) {
   Matrix *result = matadd(A, B);
   print_operation(A, B, result, '+');
-  free(result);
+  free_matrix(result);
 }
 
