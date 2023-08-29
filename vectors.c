@@ -38,6 +38,31 @@ double dot_product(Matrix *vec1, Matrix *vec2) {
   return rv;
 }
 
+static void print_dot_operation(Matrix *A, Matrix *B, double result) {
+  unsigned int output_height, output_height_half;
+  output_height = A->rows + 2;
+  output_height_half = (output_height - 1) / 2;
+
+  for (unsigned int i = 0; i < output_height; i++) {
+    print_matrix_row(A, i);
+    if (i == output_height_half)
+      printf("  .  ");
+    else
+      printf("     ");
+
+    print_matrix_row(B, i);
+    if (i == output_height_half)
+      printf("  =  %f\n", result);
+    else
+      putchar('\n');
+  }
+}
+
+void print_dot(Matrix *A, Matrix *B) {
+  double scalar = dot_product(A, B);
+  print_dot_operation(A, B, scalar);
+}
+
 Matrix *allocate_unit_vector(Matrix *vector) {
   Matrix *unit_vector = allocate_empty(vector->rows, vector->columns);
   unit_vector->rows = vector->rows;
@@ -100,7 +125,4 @@ double angle_between_vectors(Matrix *vec1, Matrix *vec2) {
   return arccos(cos_theta);
 }
 
-//int main() {
-//  printf("%f\n", arccos(-0.95));
-//}
 

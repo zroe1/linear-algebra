@@ -98,7 +98,7 @@ static unsigned int len_of_num(double num) {
 
 /* NOTE: this helper function exists and is written like this becuase it 
 makes it easier to print out operations involving multiple matrices */
-static void print_matrix_row(Matrix *matrix, int row) {
+void print_matrix_row(Matrix *matrix, int row) {
   unsigned int space_per_num = 8;
 
   if (row == -1) {
@@ -220,26 +220,6 @@ static Matrix *print_operation(Matrix *A, Matrix *B, Matrix *result, char operat
   return result; 
 }
 
-static void print_dot_operation(Matrix *A, Matrix *B, double result) {
-  unsigned int output_height, output_height_half;
-  output_height = A->rows + 2;
-  output_height_half = (output_height - 1) / 2;
-
-  for (unsigned int i = 0; i < output_height; i++) {
-    print_matrix_row(A, i);
-    if (i == output_height_half)
-      printf("  .  ");
-    else
-      printf("     ");
-
-    print_matrix_row(B, i);
-    if (i == output_height_half)
-      printf("  =  %f\n", result);
-    else
-      putchar('\n');
-  }
-}
-
 void print_matmul(Matrix *A, Matrix *B) {
   Matrix *result = matmul(A, B);
   print_operation(A, B, result, '*');
@@ -252,8 +232,4 @@ void print_matadd(Matrix *A, Matrix *B) {
   free_matrix(result);
 }
 
-void print_dot(Matrix *A, Matrix *B) {
-  double scalar = dot_product(A, B);
-  print_dot_operation(A, B, scalar);
-}
 

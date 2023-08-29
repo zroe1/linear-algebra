@@ -7,6 +7,8 @@ typedef struct {
   double **values;
 } Matrix;
 
+void print_matrix_row(Matrix *matrix, int row);
+
 /**
  * Prints a matrix to standard output.
  * 
