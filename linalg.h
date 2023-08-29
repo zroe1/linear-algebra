@@ -112,6 +112,8 @@ double norm(Matrix *vector);
  */
 double dot_product(Matrix *vec1, Matrix *vec2);
 
+void print_dot(Matrix *A, Matrix *B);
+
 /**
  * Allocates and returns the unit vector for the vector passed into the 
  * function
@@ -121,6 +123,7 @@ double dot_product(Matrix *vec1, Matrix *vec2);
  * vector passed into the function.
  */
 Matrix *allocate_unit_vector(Matrix *vector);
+
 
 /**
  * Calculates the angle between vectors.

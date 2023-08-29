@@ -100,7 +100,7 @@ double angle_between_vectors(Matrix *vec1, Matrix *vec2) {
   return arccos(cos_theta);
 }
 
-int main() {
-  printf("%f\n", arccos(-0.95));
-}
+//int main() {
+//  printf("%f\n", arccos(-0.95));
+//}
 
