@@ -12,7 +12,7 @@ int main() {
     {2, 3},
     {5, 2}
   };
-
+  
   Matrix *a = allocate_from_2D_arr(2, 3, arr1);
   Matrix *b = allocate_from_2D_arr(3, 2, arr2);
 
@@ -27,7 +27,7 @@ int main() {
   free_matrix(a);
   free_matrix(b);
   free_matrix(output);
-
+ 
   return 0;
 }
 
