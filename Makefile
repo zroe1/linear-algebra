@@ -1,10 +1,10 @@
-all: matmul_example matadd_example
+all: matmul matadd dot
 
-matmul_example: matmul_example.o matrices.o vectors.o
-	clang -o matmul_example matmul_example.o matrices.o vectors.o
+matmul: matmul_example.o matrices.o vectors.o
+	clang -o matmul matmul_example.o matrices.o vectors.o
 
-matadd_example: matadd_example.o matrices.o vectors.o
-	clang -o matadd_example matadd_example.o matrices.o vectors.o
+matadd: matadd_example.o matrices.o vectors.o
+	clang -o matadd matadd_example.o matrices.o vectors.o
 
 dot: dot.o matrices.o vectors.o
 	clang -o dot dot.o matrices.o vectors.o
@@ -25,4 +25,4 @@ dot.o: examples/dot.c
 	clang -c examples/dot.c
 
 clean:
-	rm -f *.o main_test matmul_example matadd_example dot
+	rm -f *.o main_test matmul matadd dot
